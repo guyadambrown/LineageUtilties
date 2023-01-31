@@ -12,5 +12,22 @@ depend:
 
 commands:
   launch:
-    permission: lineageutilities.commands.fun.launch
-    description: Prepare for liftoff
+    permission: lineageutilities.commands.fun.Launch
+    description: Prepare for liftoff.
+
+  bedtp:
+    permission: lineageutilities.commands.utility.BedTeleport
+    description: Teleports the player to their bed if they have one set.
+    aliases:
+      - home
+      - bed
+
+permissions:
+  # Fun Permissions
+  lineageutilities.commands.fun.Launch:
+    default: op
+
+  # Utility Permissions
+  lineageutilities.commands.utility.BedTeleport:
+    default: true
+
