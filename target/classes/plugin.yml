@@ -11,23 +11,44 @@ depend:
   - LuckPerms
 
 commands:
+  # Fun Commands
   launch:
-    permission: lineageutilities.commands.fun.Launch
     description: Prepare for liftoff.
+    permission: lineageutilities.launch
 
+  # Utility Commands
   bedtp:
-    permission: lineageutilities.commands.utility.BedTeleport
     description: Teleports the player to their bed if they have one set.
+    permission: lineageutilities.bedteleport
     aliases:
       - home
       - bed
 
+  ping:
+    description: Shows a player's latency to the server in milliseconds.
+    permission: lineageutilities.ping
+
+  fly:
+    description: Toggles a whether a player can fly or not.
+    permission: lineageutilities.fly
+
 permissions:
   # Fun Permissions
-  lineageutilities.commands.fun.Launch:
+  lineageutilities.launch:
     default: op
 
   # Utility Permissions
-  lineageutilities.commands.utility.BedTeleport:
+  lineageutilities.bedteleport:
     default: true
 
+  lineageutilities.ping:
+    default: true
+
+  lineageutilities.ping.others:
+    default: true
+
+  lineageutilities.fly:
+    default: op
+
+  lineageutilities.fly.others:
+    default: op

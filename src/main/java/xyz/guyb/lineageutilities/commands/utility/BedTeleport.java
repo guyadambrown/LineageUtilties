@@ -11,7 +11,7 @@ public class BedTeleport implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player player){
-            if (player.hasPermission("lineageutilities.commands.utility.BedTeleport")){
+            if (player.hasPermission("lineageutilities.bedteleport")){
                 Location BedSpawn = player.getBedSpawnLocation();
                 if (BedSpawn == null){
                     player.sendMessage("§6Server §7» §cYou do not have a bed spawn set or it is obstructed.");
