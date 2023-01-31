@@ -9,3 +9,8 @@ authors:
 website: guyb.xyz
 depend:
   - LuckPerms
+
+commands:
+  launch:
+    permission: lineageutilities.commands.fun.launch
+    description: Prepare for liftoff
