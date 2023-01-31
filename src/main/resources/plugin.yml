@@ -1,0 +1,11 @@
+name: "LineageUtilities"
+version: 1.0.0
+main: xyz.guyb.lineageutilities.main
+api-version: 1.19
+description: "A collection of server utilities."
+load: STARTUP
+authors:
+  - Lineage_MC
+website: guyb.xyz
+depend:
+  - LuckPerms
