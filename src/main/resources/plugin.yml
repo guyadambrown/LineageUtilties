@@ -32,12 +32,19 @@ commands:
     description: Toggles a whether a player can fly or not.
     permission: lineageutilities.fly
 
+  broadcast:
+    description: Broadcasts a message to the entire server.
+    permission: lineageutilities.broadcast
+
 permissions:
   # Fun Permissions
   lineageutilities.launch:
     default: op
 
   # Utility Permissions
+  lineageutilities.broadcast:
+    default: op
+
   lineageutilities.bedteleport:
     default: true
 

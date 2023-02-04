@@ -3,6 +3,7 @@ package xyz.guyb.lineageutilities;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.guyb.lineageutilities.commands.fun.LaunchCommand;
 import xyz.guyb.lineageutilities.commands.utility.BedTeleport;
+import xyz.guyb.lineageutilities.commands.utility.BroadcastCommand;
 import xyz.guyb.lineageutilities.commands.utility.FlyCommand;
 import xyz.guyb.lineageutilities.commands.utility.PingCommand;
 
@@ -17,6 +18,7 @@ public class main extends JavaPlugin {
         Objects.requireNonNull(getCommand("bedtp")).setExecutor(new BedTeleport());
         Objects.requireNonNull(getCommand("ping")).setExecutor(new PingCommand());
         Objects.requireNonNull(getCommand("fly")).setExecutor(new FlyCommand());
+        Objects.requireNonNull(getCommand("broadcast")).setExecutor(new BroadcastCommand());
     }
 
 
