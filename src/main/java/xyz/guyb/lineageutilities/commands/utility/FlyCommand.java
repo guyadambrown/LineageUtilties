@@ -4,41 +4,53 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import xyz.guyb.lineageutilities.main;
 
 public class FlyCommand implements CommandExecutor {
+    FileConfiguration config = main.plugin.getConfig();
+    String prefix = config.getString("globalOptions.messages.prefix");
+    String notOnline = config.getString("globalOptions.messages.notOnline");
+    String playerNameError = config.getString("globalOptions.messages.playerNameError");
+    String flightEnabledSelf = config.getString("commands.fly.messages.flightEnabledSelf");
+    String flightDisabledSelf = config.getString("commands.fly.messages.flightDisabledSelf");
+    String flightEnabledOther = config.getString("commands.fly.messages.flightEnabledOther");
+    String flightDisabledOther = config.getString("commands.fly.messages.flightDisabledOther");
+
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if(commandSender instanceof Player player){
-            if (strings.length == 0){
-                if (player.hasPermission("lineageutilities.fly")){
+        if (strings.length == 0){
+            if (commandSender.hasPermission("lineageUtilities.fly")){
+                if (commandSender instanceof Player player){
                     if (player.getAllowFlight()){
                         player.setAllowFlight(false);
-                        player.sendMessage("§6Server §7» §cFlight has been disabled.");
+                        player.sendMessage(prefix + flightDisabledSelf);
                     }else {
                         player.setAllowFlight(true);
-                        player.sendMessage("§6Server §7» §aFlight has been enabled.");
+                        player.sendMessage(prefix + flightEnabledSelf);
                     }
+                }else {
+                    commandSender.sendMessage(prefix + playerNameError);
                 }
-            }else {
-                // Argument has been supplied
+            }
+
+        }else {
+            if (commandSender.hasPermission("lineageUtilities.fly.other")) {
                 Player target = Bukkit.getPlayer(strings[0]);
-                if (player.hasPermission("lineageutilities.fly.others")){
-                    if (target != null){
-                        if (target.getAllowFlight()){
-                            target.setAllowFlight(false);
-                            target.sendMessage("§6Server §7» §cFlight has been disabled.");
-                            player.sendMessage("§6Server §7» §cFlight has been disabled for "+ target.getDisplayName()+".");
-                        }else {
-                            target.setAllowFlight(true);
-                            target.sendMessage("§6Server §7» §aFlight has been enabled.");
-                            player.sendMessage("§6Server §7» §aFlight has been enabled for "+ target.getDisplayName()+".");
-                        }
+                if (target == null) {
+                    commandSender.sendMessage(prefix + notOnline);
+                } else {
+                    if (target.getAllowFlight()) {
+                        target.setAllowFlight(false);
+                        commandSender.sendMessage(prefix + flightDisabledOther.replace("%player%", target.getDisplayName()));
+                    } else {
+                        target.setAllowFlight(true);
+                        commandSender.sendMessage(prefix + flightEnabledOther.replace("%player%", target.getDisplayName()));
                     }
                 }
             }
         }
-
         return true;
     }
 }

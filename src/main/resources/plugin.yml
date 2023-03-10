@@ -3,59 +3,79 @@ version: 1.0.0
 main: xyz.guyb.lineageutilities.main
 api-version: 1.19
 description: "A collection of server utilities."
-load: STARTUP
+load: POSTWORLD
 authors:
   - Lineage_MC
 website: guyb.xyz
-depend:
+softdepend:
   - LuckPerms
 
 commands:
   # Fun Commands
   launch:
     description: Prepare for liftoff.
-    permission: lineageutilities.launch
+    permission: lineageUtilities.launch
+
+  demo:
+    permission: lineageUtilities.demo
 
   # Utility Commands
-  bedtp:
+  discord:
+    description: Shows a discord link.
+    permission: lineageUtilities.discord
+
+  bed:
     description: Teleports the player to their bed if they have one set.
-    permission: lineageutilities.bedteleport
+    permission: lineageUtilities.bed
     aliases:
       - home
-      - bed
+      - bedTP
 
   ping:
     description: Shows a player's latency to the server in milliseconds.
-    permission: lineageutilities.ping
+    permission: lineageUtilities.ping
 
   fly:
     description: Toggles a whether a player can fly or not.
-    permission: lineageutilities.fly
+    permission: lineageUtilities.fly
 
   broadcast:
     description: Broadcasts a message to the entire server.
-    permission: lineageutilities.broadcast
+    permission: lineageUtilities.broadcast
+
+  spawn:
+    description: Sends a player to spawn.
+    permission: lineageUtilities.spawn
 
 permissions:
+
   # Fun Permissions
-  lineageutilities.launch:
+  lineageUtilities.launch:
     default: op
 
+  lineageUtilities.demo:
+    default: op
   # Utility Permissions
-  lineageutilities.broadcast:
+  lineageUtilities.discord:
+    default: true
+
+  lineageUtilities.broadcast:
     default: op
 
-  lineageutilities.bedteleport:
+  lineageUtilities.bed:
     default: true
 
-  lineageutilities.ping:
-    default: true
-
-  lineageutilities.ping.others:
-    default: true
-
-  lineageutilities.fly:
+  lineageUtilities.bed.others:
     default: op
 
-  lineageutilities.fly.others:
+  lineageUtilities.ping:
+    default: true
+
+  lineageUtilities.ping.others:
+    default: true
+
+  lineageUtilities.fly:
+    default: op
+
+  lineageUtilities.fly.others:
     default: op

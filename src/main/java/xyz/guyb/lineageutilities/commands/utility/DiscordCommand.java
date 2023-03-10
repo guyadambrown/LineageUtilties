@@ -1,27 +1,22 @@
 package xyz.guyb.lineageutilities.commands.utility;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
 import xyz.guyb.lineageutilities.main;
 
-import java.util.Arrays;
-
-public class BroadcastCommand implements CommandExecutor {
+public class DiscordCommand implements CommandExecutor {
     FileConfiguration config = main.plugin.getConfig();
+    String discordMsg = config.getString("commands.discord.message");
     String prefix = config.getString("globalOptions.messages.prefix");
+
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        String message = String.join(" ", strings);
 
-        if (commandSender.hasPermission("lineageUtilities.broadcast")) {
-            Bukkit.broadcastMessage(prefix + message);
-            return true;
+        if (commandSender.hasPermission("lineageUtilities.discord")){
+            commandSender.sendMessage(prefix + discordMsg);
         }
-
         return true;
     }
 }
