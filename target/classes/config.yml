@@ -1,0 +1,69 @@
+globalOptions:
+  messages:
+    prefix: §6Server §7» §r
+    notOnline: §cThis player is not online.
+    playerNameError: §cYou must supply a player name.
+    reload: The configuration file has been reloaded
+    playerOnly: §cOnly a player can run this command.
+  tpSound:
+    name: ENTITY_ENDERMAN_TELEPORT
+
+joinMessage:
+  enabled: true
+  prefixEnabled: true
+  message: §e%player% joined the game
+
+leaveMessage:
+  enabled: true
+  prefixEnabled: true
+  message: §e%player% left the game
+
+firstJoinMessage:
+  enabled: true
+  message: Welcome %player% to the server!
+
+spawnOutOfWorld:
+  enabled: true
+  yLevel: -64
+
+deathCoords:
+  enabled: true
+
+commands:
+  discord:
+    message: Insert Discord link.
+
+  demo:
+    messageSelf: Showing the demo screen.
+    messageOther: You've shown the demo screen to %player%
+
+  spawn:
+    messages:
+      teleport: Teleporting to spawn.
+      sent: §r%player% has been sent to spawn.
+
+  ping:
+    messages:
+      selfPing: Your ping is %ping%ms
+      otherPing: Ping for %player% is %ping%ms
+
+  bedTeleport:
+    messages:
+      obstructedBed: §cYou do not have a bed spawn set or it is obstructed.
+      teleported: You have been teleported to your bed.
+
+  fly:
+    messages:
+      flyEnabledSelf: Flight enabled.
+      flyDisabledSelf: Flight disabled.
+      flyEnabledOther: Flight enabled for %player%
+      flyDisabledOther: Flight disabled for %player%
+
+  launch:
+    message: We have liftoff!!
+    sound: ENTITY_FIREWORK_ROCKET_LAUNCH
+
+  gameMode:
+    messages:
+      selfGameMode: You are now in %mode% mode.
+      otherGameMode: §r%player% is now in %mode% mode.
