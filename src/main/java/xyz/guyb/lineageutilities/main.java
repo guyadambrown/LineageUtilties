@@ -5,6 +5,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import xyz.guyb.lineageutilities.commands.fun.DemoCommand;
 import xyz.guyb.lineageutilities.commands.fun.LaunchCommand;
 import xyz.guyb.lineageutilities.commands.utility.*;
+import xyz.guyb.lineageutilities.commands.utility.gamemode.AdventureCommand;
+import xyz.guyb.lineageutilities.commands.utility.gamemode.CreativeCommand;
+import xyz.guyb.lineageutilities.commands.utility.gamemode.SpectatorCommand;
+import xyz.guyb.lineageutilities.commands.utility.gamemode.SurvivalCommand;
 import xyz.guyb.lineageutilities.events.SpawnOutOfWorld;
 import xyz.guyb.lineageutilities.events.customJoinLeave;
 import xyz.guyb.lineageutilities.events.firstJoinMessage;
@@ -28,6 +32,11 @@ public class main extends JavaPlugin {
         Objects.requireNonNull(getCommand("demo")).setExecutor(new DemoCommand());
 
         //Register utility commands
+        Objects.requireNonNull(getCommand("heal")).setExecutor(new HealCommand());
+        Objects.requireNonNull(getCommand("creative")).setExecutor(new CreativeCommand());
+        Objects.requireNonNull(getCommand("spectator")).setExecutor(new SpectatorCommand());
+        Objects.requireNonNull(getCommand("survival")).setExecutor(new SurvivalCommand());
+        Objects.requireNonNull(getCommand("adventure")).setExecutor(new AdventureCommand());
         Objects.requireNonNull(getCommand("bed")).setExecutor(new BedTeleport());
         Objects.requireNonNull(getCommand("ping")).setExecutor(new PingCommand());
         Objects.requireNonNull(getCommand("fly")).setExecutor(new FlyCommand());

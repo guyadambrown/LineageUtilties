@@ -62,3 +62,13 @@ commands:
   launch:
     message: We have liftoff!!
     sound: ENTITY_FIREWORK_ROCKET_LAUNCH
+
+  gameMode:
+    messages:
+      selfGameMode: You are now in %mode% mode.
+      otherGameMode: §r%player% is now in %mode% mode.
+
+  heal:
+    messages:
+      selfHeal: You have been healed.
+      targetHeal: §r%player% has been healed.

@@ -20,6 +20,28 @@ commands:
     permission: lineageUtilities.demo
 
   # Utility Commands
+  survival:
+    description: Changes the player's mode to survival
+    permission: lineageUtilities.survival
+    aliases:
+      - gms
+
+  creative:
+    description: Changes the player's mode to creative
+    aliases:
+      - gmc
+
+  spectator:
+    description: Changes the player's mode to spectator
+    aliases:
+      - gmsp
+
+  adventure:
+    description: Changes the player's mode to adventure.
+    permission: lineageUtilities.adventure
+    aliases:
+      - gma
+
   discord:
     description: Shows a discord link.
     permission: lineageUtilities.discord
